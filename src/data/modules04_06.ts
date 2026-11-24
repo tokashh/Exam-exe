@@ -1,0 +1,876 @@
+import { Question } from '../types/game';
+
+export const MODULES_04_06_QUESTIONS: Question[] = [
+  // =========================================================
+  // MODULE 04 — PYTHON LAB (Python Programming) — 8 exercises
+  // =========================================================
+  {
+    id: 'm4-q1',
+    moduleId: 'python-lab',
+    order: 1,
+    format: 'DEBUG_MODE',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Арифметика и типы', kk: 'Арифметика және типтер' },
+    xpReward: 45,
+    title: { ru: 'Целочисленное деление', kk: 'Бүтін санды бөлу' },
+    prompt: {
+      ru: 'Проанализируйте код в редакторе и укажите, что будет выведено в консоль.',
+      kk: 'Редактордағы кодты талдап, консольге не шығатынын анықтаңыз.',
+    },
+    python: {
+      mode: 'predict_output',
+      codeLines: [
+        'a = 17',
+        'b = 5',
+        'q = a // b',
+        'r = a % b',
+        'print(q + r)',
+      ],
+      options: {
+        ru: ['3', '5', '5.4', '6'],
+        kk: ['3', '5', '5.4', '6'],
+      },
+      correctOptionIndex: 1,
+      expectedConsoleOutput: '5',
+    },
+    hint: {
+      ru: '// — деление нацело (17 // 5 = 3), % — остаток от деления (17 % 5 = 2).',
+      kk: '// — бүтін бөлу (17 // 5 = 3), % — бөлуден қалған қалдық (17 % 5 = 2).',
+    },
+    solutionDisplay: { ru: '5', kk: '5' },
+    explanation: {
+      ru: 'q = 17 // 5 = 3, r = 17 % 5 = 2. Сумма q + r = 3 + 2 = 5.',
+      kk: 'q = 17 // 5 = 3, r = 17 % 5 = 2. Қосындысы q + r = 3 + 2 = 5.',
+    },
+  },
+  {
+    id: 'm4-q2',
+    moduleId: 'python-lab',
+    order: 2,
+    format: 'DEBUG_MODE',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Поиск синтаксической ошибки', kk: 'Синтаксистік қатені табу' },
+    xpReward: 50,
+    title: { ru: 'Поломка в условии if', kk: 'if шартындағы ақау' },
+    prompt: {
+      ru: 'Найдите и выберите в редакторе строку, содержащую синтаксическую ошибку Python.',
+      kk: 'Редактордан Python синтаксистік қатесі бар жолды тауып, таңдаңыз.',
+    },
+    python: {
+      mode: 'find_error_line',
+      codeLines: [
+        'score = 85',
+        'if score >= 80:',
+        '    status = "PASS"',
+        'else',
+        '    status = "RETRY"',
+        'print(status)',
+      ],
+      bugLine: 4,
+      expectedConsoleOutput: 'SyntaxError: expected ":" on line 4',
+    },
+    hint: {
+      ru: 'После ключевого слова else обязательно должно стоять двоеточие.',
+      kk: 'else кілт сөзінен кейін міндетті түрде қос нүкте тұруы керек.',
+    },
+    solutionDisplay: { ru: 'Строка 4: else:', kk: '4-жол: else:' },
+    explanation: {
+      ru: 'В Python заголовки блоков if, elif, else, for, while всегда заканчиваются двоеточием (:).',
+      kk: 'Python-да if, elif, else, for, while блоктарының тақырыптары әрдайым қос нүктемен (:) аяқталады.',
+    },
+  },
+  {
+    id: 'm4-q3',
+    moduleId: 'python-lab',
+    order: 3,
+    format: 'DEBUG_MODE',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Ветвление if / elif / else', kk: 'if / elif / else тармақталуы' },
+    xpReward: 55,
+    title: { ru: 'Калибровка доступа', kk: 'Қатынауды калибрлеу' },
+    prompt: {
+      ru: 'Что выведет программа при запуске с текущим значением x = 12?',
+      kk: 'Бағдарлама x = 12 мәнімен іске қосылғанда не шығарады?',
+    },
+    python: {
+      mode: 'predict_output',
+      codeLines: [
+        'x = 12',
+        'if x > 15:',
+        '    print("ALPHA")',
+        'elif x % 3 == 0 and x > 10:',
+        '    print("BETA")',
+        'else:',
+        '    print("GAMMA")',
+      ],
+      options: {
+        ru: ['ALPHA', 'BETA', 'GAMMA', 'ALPHA BETA'],
+        kk: ['ALPHA', 'BETA', 'GAMMA', 'ALPHA BETA'],
+      },
+      correctOptionIndex: 1,
+      expectedConsoleOutput: 'BETA',
+    },
+    hint: {
+      ru: '12 > 15 ложно, поэтому проверяется ветка elif: делится ли 12 на 3 без остатка и больше ли 10.',
+      kk: '12 > 15 жалған, сондықтан elif тексеріледі: 12 саны 3-ке қалдықсыз бөліне ме және 10-нан үлкен бе?',
+    },
+    solutionDisplay: { ru: 'BETA', kk: 'BETA' },
+    explanation: {
+      ru: '12 % 3 == 0 истинно и 12 > 10 истинно, поэтому выполняется ветка elif и печатается BETA.',
+      kk: '12 % 3 == 0 ақиқат және 12 > 10 ақиқат, сондықтан elif орындалып BETA шығады.',
+    },
+  },
+  {
+    id: 'm4-q4',
+    moduleId: 'python-lab',
+    order: 4,
+    format: 'DEBUG_MODE',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Цикл for и range', kk: 'for циклі және range' },
+    xpReward: 60,
+    title: { ru: 'Пропущенное выражение цикла', kk: 'Циклдің жетіспейтін өрнегі' },
+    prompt: {
+      ru: 'Дополните пропущенное выражение в строке 2 так, чтобы программа вывела сумму 2 + 4 + 6 = 12.',
+      kk: 'Бағдарлама 2 + 4 + 6 = 12 қосындысын шығаруы үшін 2-жолдағы жетіспейтін өрнекті енгізіңіз.',
+    },
+    python: {
+      mode: 'complete_code',
+      codeLines: [
+        'total = 0',
+        'for n in ___:',
+        '    total += n',
+        'print(total)',
+      ],
+      missingLineIndex: 2,
+      acceptedTextAnswers: ['range(2, 7, 2)', 'range(2, 8, 2)', '[2, 4, 6]', '(2, 4, 6)'],
+      expectedConsoleOutput: '12',
+    },
+    hint: {
+      ru: 'Используйте range(старт, стоп, шаг), например range(2, 7, 2) или список [2, 4, 6].',
+      kk: 'range(басы, соңы, қадам) функциясын, мысалы range(2, 7, 2) немесе [2, 4, 6] тізімін қолданыңыз.',
+    },
+    solutionDisplay: { ru: 'range(2, 7, 2)', kk: 'range(2, 7, 2)' },
+    explanation: {
+      ru: 'range(2, 7, 2) генерирует числа 2, 4, 6 (правая граница 7 не включается). Их сумма равна 12.',
+      kk: 'range(2, 7, 2) функциясы 2, 4, 6 сандарын береді (7 қосылмайды). Олардың қосындысы 12.',
+    },
+  },
+  {
+    id: 'm4-q5',
+    moduleId: 'python-lab',
+    order: 5,
+    format: 'DEBUG_MODE',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Цикл while', kk: 'while циклі' },
+    xpReward: 60,
+    title: { ru: 'Логическая ошибка в цикле', kk: 'Циклдегі логикалық қате' },
+    prompt: {
+      ru: 'Код должен вывести все числа от 3 до 1 (3, 2, 1), но зацикливается бесконечно. Какая строка вызывает бесконечный цикл?',
+      kk: 'Код 3-тен 1-ге дейінгі сандарды (3, 2, 1) шығаруы керек, бірақ шексіз циклге түсіп кетеді. Қай жол шексіз циклді тудырады?',
+    },
+    python: {
+      mode: 'find_error_line',
+      codeLines: [
+        'k = 3',
+        'while k > 0:',
+        '    print(k)',
+        '    k += 1',
+      ],
+      bugLine: 4,
+      expectedConsoleOutput: '3 4 5 ... (Infinite loop on line 4)',
+    },
+    hint: {
+      ru: 'Переменная k должна уменьшаться до нуля (k -= 1), а не увеличиваться.',
+      kk: 'k айнымалысы нөлге дейін кемуі керек (k -= 1), өспеуі тиіс.',
+    },
+    solutionDisplay: { ru: 'Строка 4: должно быть k -= 1', kk: '4-жол: k -= 1 болуы тиіс' },
+    explanation: {
+      ru: 'Поскольку k начинается с 3 и каждый шаг увеличивается (k += 1), условие k > 0 остаётся истинным всегда.',
+      kk: 'k 3-тен басталып әр қадамда өсетіндіктен (k += 1), k > 0 шарты әрқашан ақиқат болып қалады.',
+    },
+  },
+  {
+    id: 'm4-q6',
+    moduleId: 'python-lab',
+    order: 6,
+    format: 'DEBUG_MODE',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Строки и срезы', kk: 'Жолдар және кесінділер' },
+    xpReward: 65,
+    title: { ru: 'Срез строки', kk: 'Жол кесіндісі' },
+    prompt: {
+      ru: 'Определите вывод фрагмента кода со срезами строк.',
+      kk: 'Жол кесінділері бар код үзіндісінің нәтижесін анықтаңыз.',
+    },
+    python: {
+      mode: 'predict_output',
+      codeLines: [
+        'word = "CYBERNET"',
+        'part = word[1:5]',
+        'print(part[::-1])',
+      ],
+      options: {
+        ru: ['YBER', 'REBY', 'NEBY', 'EBYC'],
+        kk: ['YBER', 'REBY', 'NEBY', 'EBYC'],
+      },
+      correctOptionIndex: 1,
+      expectedConsoleOutput: 'REBY',
+    },
+    hint: {
+      ru: 'Индексация начинается с 0: word[1:5] берёт индексы 1, 2, 3, 4 ("YBER"), затем [::-1] разворачивает строку.',
+      kk: 'Индекстеу 0-ден басталады: word[1:5] 1, 2, 3, 4 индекстерін алады ("YBER"), ал [::-1] жолды кері айналдырады.',
+    },
+    solutionDisplay: { ru: 'REBY', kk: 'REBY' },
+    explanation: {
+      ru: 'word[1:5] = "YBER". Срез [::-1] разворачивает строку задом наперёд: "REBY".',
+      kk: 'word[1:5] = "YBER". [::-1] кесіндісі жолды кері аударады: "REBY".',
+    },
+  },
+  {
+    id: 'm4-q7',
+    moduleId: 'python-lab',
+    order: 7,
+    format: 'DEBUG_MODE',
+    difficulty: 'advanced',
+    topicTag: { ru: 'Списки и методы', kk: 'Тізімдер және әдістер' },
+    xpReward: 70,
+    title: { ru: 'Обработка списка', kk: 'Тізімді өңдеу' },
+    prompt: {
+      ru: 'Какое число будет выведено на экран после выполнения операций со списком?',
+      kk: 'Тізіммен орындалған амалдардан кейін экранға қандай сан шығарылады?',
+    },
+    python: {
+      mode: 'predict_output',
+      codeLines: [
+        'nums = [4, 7, 2, 9]',
+        'nums.append(5)',
+        'nums.pop(1)',
+        'print(sum(nums))',
+      ],
+      options: {
+        ru: ['18', '20', '22', '27'],
+        kk: ['18', '20', '22', '27'],
+      },
+      correctOptionIndex: 1,
+      expectedConsoleOutput: '20',
+    },
+    hint: {
+      ru: 'append(5) добавит 5 в конец, а pop(1) удалит элемент с индексом 1 (число 7).',
+      kk: 'append(5) соңына 5 қосады, ал pop(1) 1-индекстегі элементті (7 санын) жояды.',
+    },
+    solutionDisplay: { ru: '20', kk: '20' },
+    explanation: {
+      ru: 'После append(5): [4, 7, 2, 9, 5]. После pop(1) удаляется 7: [4, 2, 9, 5]. Сумма = 4 + 2 + 9 + 5 = 20.',
+      kk: 'append(5) кейін: [4, 7, 2, 9, 5]. pop(1) 7-ні өшіреді: [4, 2, 9, 5]. Қосынды = 20.',
+    },
+  },
+  {
+    id: 'm4-q8',
+    moduleId: 'python-lab',
+    order: 8,
+    format: 'DEBUG_MODE',
+    difficulty: 'advanced',
+    isBossChallenge: true,
+    topicTag: { ru: 'Финал: Починка программы', kk: 'Финал: Бағдарламаны түзету' },
+    xpReward: 120,
+    title: {
+      ru: 'Исправление сбойного модуля Python',
+      kk: 'Істен шыққан Python бағдарламасын түзету',
+    },
+    prompt: {
+      ru: 'ФИНАЛ МОДУЛЯ 04: Функция должна считать количество чётных положительных чисел в списке, но возвращает 0 из-за ошибки в логике. Выберите правильное исправление строки 4.',
+      kk: '04-МОДУЛЬ ФИНАЛЫ: Функция тізімдегі жұп оң сандар санын есептеуі тиіс, бірақ логикалық қате себебінен 0 қайтарады. 4-жолды дұрыс түзету нұсқасын таңдаңыз.',
+    },
+    python: {
+      mode: 'fix_logic',
+      codeLines: [
+        'def count_even_pos(arr):',
+        '    cnt = 0',
+        '    for x in arr:',
+        '        if x > 0 and x % 2 == 1:',
+        '            cnt += 1',
+        '    return cnt',
+        'print(count_even_pos([-2, 4, 7, 8]))',
+      ],
+      bugLine: 4,
+      options: {
+        ru: [
+          'if x > 0 and x % 2 == 0:',
+          'if x > 0 or x % 2 == 0:',
+          'if x >= 0 and x // 2 == 0:',
+          'if x < 0 and x % 2 == 0:',
+        ],
+        kk: [
+          'if x > 0 and x % 2 == 0:',
+          'if x > 0 or x % 2 == 0:',
+          'if x >= 0 and x // 2 == 0:',
+          'if x < 0 and x % 2 == 0:',
+        ],
+      },
+      correctOptionIndex: 0,
+      expectedConsoleOutput: '2',
+    },
+    hint: {
+      ru: 'Чётное число имеет остаток 0 при делении на 2 (x % 2 == 0), а не 1.',
+      kk: 'Жұп санның 2-ге бөлгендегі қалдығы 0-ге тең (x % 2 == 0), 1 емес.',
+    },
+    solutionDisplay: {
+      ru: 'if x > 0 and x % 2 == 0: (выведет 2: числа 4 и 8)',
+      kk: 'if x > 0 and x % 2 == 0: (нәтиже 2: 4 және 8 сандары)',
+    },
+    explanation: {
+      ru: 'Условие x % 2 == 1 проверяло нечётность. Замена на x % 2 == 0 и x > 0 находит 4 и 8 (ответ 2).',
+      kk: 'x % 2 == 1 тақ сандарды тексереді. x % 2 == 0 ауыстырғанда 4 және 8 сандары табылады (нәтиже 2).',
+    },
+  },
+
+  // =========================================================
+  // MODULE 05 — DATA MATRIX (Databases & SQL) — 8 exercises
+  // =========================================================
+  {
+    id: 'm5-q1',
+    moduleId: 'data-matrix',
+    order: 1,
+    format: 'MATCHING',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Основы реляционных БД', kk: 'Реляциялық ДҚ негіздері' },
+    xpReward: 45,
+    title: { ru: 'Структура базы данных', kk: 'Деректер қорының құрылымы' },
+    prompt: {
+      ru: 'Сопоставьте ключевые понятия реляционных баз данных с их определениями.',
+      kk: 'Реляциялық деректер қорының негізгі ұғымдарын анықтамаларымен сәйкестендіріңіз.',
+    },
+    pairs: [
+      {
+        id: 'db1',
+        left: { ru: 'Первичный ключ (PK)', kk: 'Бастапқы кілт (PK)' },
+        right: { ru: 'Уникально идентифицирует каждую запись в таблице', kk: 'Кестедегі әр жазбаны бірегей анықтайды' },
+      },
+      {
+        id: 'db2',
+        left: { ru: 'Внешний ключ (FK)', kk: 'Сыртқы кілт (FK)' },
+        right: { ru: 'Связывает запись с первичным ключом другой таблицы', kk: 'Жазбаны басқа кестенің бастапқы кілтімен байланыстырады' },
+      },
+      {
+        id: 'db3',
+        left: { ru: 'Запись (Record)', kk: 'Жазба (Record)' },
+        right: { ru: 'Отдельная строка таблицы, содержащая набор полей', kk: 'Өрістер жиынтығын қамтитын кестенің бір жолы' },
+      },
+      {
+        id: 'db4',
+        left: { ru: 'Поле (Field)', kk: 'Өріс (Field)' },
+        right: { ru: 'Столбец таблицы, задающий атрибут одного типа', kk: 'Бір типті атрибутты беретін кесте бағаны' },
+      },
+    ],
+    hint: {
+      ru: 'Строка = запись, столбец = поле, уникальный ID = первичный ключ.',
+      kk: 'Жол = жазба, баған = өріс, бірегей ID = бастапқы кілт.',
+    },
+    solutionDisplay: {
+      ru: 'PK→уникальный ID, FK→связь таблиц, Запись→строка, Поле→столбец',
+      kk: 'PK→бірегей ID, FK→кесте байланысы, Жазба→жол, Өріс→баған',
+    },
+    explanation: {
+      ru: 'В реляционных БД таблицы состоят из полей (столбцов) и записей (строк), связанных через PK и FK.',
+      kk: 'Реляциялық ДҚ-да кестелер PK және FK арқылы байланысқан өрістер (бағандар) мен жазбалардан (жолдар) тұрады.',
+    },
+  },
+  {
+    id: 'm5-q2',
+    moduleId: 'data-matrix',
+    order: 2,
+    format: 'SQL_TERMINAL',
+    difficulty: 'beginner',
+    topicTag: { ru: 'SELECT и WHERE', kk: 'SELECT және WHERE' },
+    xpReward: 55,
+    title: { ru: 'Фильтрация студентов', kk: 'Студенттерді сүзу' },
+    prompt: {
+      ru: 'Напишите SQL-запрос, чтобы выбрать все столбцы из таблицы students для студентов с баллом grade >= 90.',
+      kk: 'students кестесінен grade >= 90 балл алған студенттердің барлық бағандарын таңдайтын SQL сұранысын жазыңыз.',
+    },
+    sql: {
+      starterQuery: 'SELECT * FROM students WHERE ',
+      requiredPatterns: ['SELECT', 'FROM students', 'WHERE', 'grade', '90'],
+      expectedRowCount: 3,
+      referenceQuery: 'SELECT * FROM students WHERE grade >= 90;',
+    },
+    hint: {
+      ru: 'Используйте SELECT * FROM students WHERE grade >= 90;',
+      kk: 'SELECT * FROM students WHERE grade >= 90; сұранысын қолданыңыз.',
+    },
+    solutionDisplay: {
+      ru: 'SELECT * FROM students WHERE grade >= 90;',
+      kk: 'SELECT * FROM students WHERE grade >= 90;',
+    },
+    explanation: {
+      ru: 'Условие WHERE grade >= 90 отбирает 3 студентов: Aibek (92), Madina (96) и Aruzhan (95).',
+      kk: 'WHERE grade >= 90 шарты 3 студентті таңдайды: Aibek (92), Madina (96) және Aruzhan (95).',
+    },
+  },
+  {
+    id: 'm5-q3',
+    moduleId: 'data-matrix',
+    order: 3,
+    format: 'SQL_TERMINAL',
+    difficulty: 'beginner',
+    topicTag: { ru: 'ORDER BY сортировка', kk: 'ORDER BY сұрыптау' },
+    xpReward: 55,
+    title: { ru: 'Рейтинг по убыванию', kk: 'Кему ретімен рейтинг' },
+    prompt: {
+      ru: 'Выведите столбцы name и grade из таблицы students, отсортировав записи по убыванию балла (ORDER BY grade DESC).',
+      kk: 'students кестесінен name және grade бағандарын баллдың кему ретімен (ORDER BY grade DESC) сұрыптап шығарыңыз.',
+    },
+    sql: {
+      starterQuery: 'SELECT name, grade FROM students ',
+      requiredPatterns: ['SELECT', 'name', 'grade', 'FROM students', 'ORDER BY', 'DESC'],
+      expectedRowCount: 6,
+      expectedFirstCell: 'Madina',
+      referenceQuery: 'SELECT name, grade FROM students ORDER BY grade DESC;',
+    },
+    hint: {
+      ru: 'Для сортировки по убыванию добавьте ключевое слово DESC в конце ORDER BY grade DESC.',
+      kk: 'Кему ретімен сұрыптау үшін соңына ORDER BY grade DESC қосыңыз.',
+    },
+    solutionDisplay: {
+      ru: 'SELECT name, grade FROM students ORDER BY grade DESC;',
+      kk: 'SELECT name, grade FROM students ORDER BY grade DESC;',
+    },
+    explanation: {
+      ru: 'ORDER BY grade DESC ставит на первое место студента с максимальным баллом — Madina (96).',
+      kk: 'ORDER BY grade DESC ең жоғары балл алған Madina (96) студентін бірінші орынға қояды.',
+    },
+  },
+  {
+    id: 'm5-q4',
+    moduleId: 'data-matrix',
+    order: 4,
+    format: 'SQL_TERMINAL',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Агрегаты COUNT / AVG / SUM', kk: 'COUNT / AVG / SUM агрегаттары' },
+    xpReward: 65,
+    title: { ru: 'Подсчёт направления CS', kk: 'CS бағытын есептеу' },
+    prompt: {
+      ru: 'Используя функцию COUNT(*), подсчитайте количество студентов в таблице students с направлением track = \'CS\'.',
+      kk: 'COUNT(*) функциясын қолданып, students кестесіндегі track = \'CS\' бағытындағы студенттер санын табыңыз.',
+    },
+    sql: {
+      starterQuery: "SELECT COUNT(*) FROM students WHERE track = 'CS';",
+      requiredPatterns: ['SELECT', 'COUNT', 'FROM students', 'WHERE', 'track', 'CS'],
+      expectedRowCount: 1,
+      expectedFirstCell: 4,
+      referenceQuery: "SELECT COUNT(*) FROM students WHERE track = 'CS';",
+    },
+    hint: {
+      ru: "Запрос: SELECT COUNT(*) FROM students WHERE track = 'CS';",
+      kk: "Сұраныс: SELECT COUNT(*) FROM students WHERE track = 'CS';",
+    },
+    solutionDisplay: {
+      ru: "SELECT COUNT(*) FROM students WHERE track = 'CS';",
+      kk: "SELECT COUNT(*) FROM students WHERE track = 'CS';",
+    },
+    explanation: {
+      ru: 'В таблице 4 студента направления CS: Aibek, Dana, Madina, Aruzhan.',
+      kk: 'Кестеде CS бағытында 4 студент бар: Aibek, Dana, Madina, Aruzhan.',
+    },
+  },
+  {
+    id: 'm5-q5',
+    moduleId: 'data-matrix',
+    order: 5,
+    format: 'SQL_TERMINAL',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'GROUP BY и HAVING', kk: 'GROUP BY және HAVING' },
+    xpReward: 70,
+    title: { ru: 'Группировка по городам', kk: 'Қалалар бойынша топтау' },
+    prompt: {
+      ru: 'Сгруппируйте студентов по городу (city), вычислите AVG(grade) и оставьте только города, где средний балл HAVING AVG(grade) > 90.',
+      kk: 'Студенттерді city бойынша топтап, AVG(grade) есептеңіз және тек орташа балы HAVING AVG(grade) > 90 болатын қалаларды қалдырыңыз.',
+    },
+    sql: {
+      starterQuery: 'SELECT city, AVG(grade) FROM students GROUP BY city HAVING AVG(grade) > 90;',
+      requiredPatterns: ['SELECT', 'city', 'AVG', 'GROUP BY city', 'HAVING'],
+      expectedRowCount: 2,
+      referenceQuery: 'SELECT city, AVG(grade) FROM students GROUP BY city HAVING AVG(grade) > 90;',
+    },
+    hint: {
+      ru: 'HAVING фильтрует группы уже после выполнения GROUP BY.',
+      kk: 'HAVING операторы GROUP BY орындалғаннан кейін топтарды сүзеді.',
+    },
+    solutionDisplay: {
+      ru: 'SELECT city, AVG(grade) FROM students GROUP BY city HAVING AVG(grade) > 90;',
+      kk: 'SELECT city, AVG(grade) FROM students GROUP BY city HAVING AVG(grade) > 90;',
+    },
+    explanation: {
+      ru: 'Средний балл > 90 имеют Astana ((92+96)/2 = 94) и Karaganda (95).',
+      kk: 'Орташа балы > 90 қалалар: Astana (94) және Karaganda (95).',
+    },
+  },
+  {
+    id: 'm5-q6',
+    moduleId: 'data-matrix',
+    order: 6,
+    format: 'SQL_TERMINAL',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Модификация UPDATE / DELETE', kk: 'UPDATE / DELETE өзгерту' },
+    xpReward: 65,
+    title: { ru: 'Коррекция оценки (UPDATE)', kk: 'Бағаны түзету (UPDATE)' },
+    prompt: {
+      ru: 'Напишите команду UPDATE, чтобы установить grade = 80 для студента Timur (WHERE name = \'Timur\') в таблице students.',
+      kk: 'students кестесіндегі Timur студентінің бағасын (WHERE name = \'Timur\') grade = 80 етіп жаңартатын UPDATE командасын жазыңыз.',
+    },
+    sql: {
+      starterQuery: "UPDATE students SET grade = 80 WHERE name = 'Timur';",
+      requiredPatterns: ['UPDATE students', 'SET grade', '80', 'WHERE', 'Timur'],
+      isMutationPreview: true,
+      referenceQuery: "UPDATE students SET grade = 80 WHERE name = 'Timur';",
+    },
+    hint: {
+      ru: "Синтаксис: UPDATE таблица SET столбец = значение WHERE условие;",
+      kk: "Синтаксис: UPDATE кесте SET баған = мән WHERE шарт;",
+    },
+    solutionDisplay: {
+      ru: "UPDATE students SET grade = 80 WHERE name = 'Timur';",
+      kk: "UPDATE students SET grade = 80 WHERE name = 'Timur';",
+    },
+    explanation: {
+      ru: 'Команда UPDATE без WHERE изменила бы все строки, поэтому условие WHERE обязательно.',
+      kk: 'WHERE шартынсыз UPDATE командасы барлық жолдарды өзгертер еді, сондықтан WHERE міндетті.',
+    },
+  },
+  {
+    id: 'm5-q7',
+    moduleId: 'data-matrix',
+    order: 7,
+    format: 'SQL_TERMINAL',
+    difficulty: 'advanced',
+    topicTag: { ru: 'Объединение JOIN', kk: 'JOIN біріктіру' },
+    xpReward: 75,
+    title: { ru: 'Связь students и results', kk: 'students пен results байланысы' },
+    prompt: {
+      ru: 'Выполните JOIN таблиц students и results по students.id = results.student_id и выберите столбцы students.name и results.score, где score >= 95.',
+      kk: 'students және results кестелерін students.id = results.student_id бойынша JOIN жасап, score >= 95 болатын students.name мен results.score бағандарын шығарыңыз.',
+    },
+    sql: {
+      starterQuery: 'SELECT students.name, results.score FROM students JOIN results ON students.id = results.student_id WHERE results.score >= 95;',
+      requiredPatterns: ['SELECT', 'JOIN results', 'ON', 'student_id', 'WHERE', '95'],
+      expectedRowCount: 3,
+      referenceQuery: 'SELECT students.name, results.score FROM students JOIN results ON students.id = results.student_id WHERE results.score >= 95;',
+    },
+    hint: {
+      ru: 'Укажите JOIN results ON students.id = results.student_id и фильтр WHERE results.score >= 95.',
+      kk: 'JOIN results ON students.id = results.student_id және WHERE results.score >= 95 сүзгісін жазыңыз.',
+    },
+    solutionDisplay: {
+      ru: 'SELECT students.name, results.score FROM students JOIN results ON students.id = results.student_id WHERE results.score >= 95;',
+      kk: 'SELECT students.name, results.score FROM students JOIN results ON students.id = results.student_id WHERE results.score >= 95;',
+    },
+    explanation: {
+      ru: 'JOIN связывает записи по внешнему ключу student_id и находит 3 результата >= 95: Madina (98, 95) и Aruzhan (96).',
+      kk: 'JOIN сыртқы кілт student_id арқылы байланыстырып, >= 95 болатын 3 нәтижені табады: Madina (98, 95) және Aruzhan (96).',
+    },
+  },
+  {
+    id: 'm5-q8',
+    moduleId: 'data-matrix',
+    order: 8,
+    format: 'SQL_TERMINAL',
+    difficulty: 'advanced',
+    isBossChallenge: true,
+    topicTag: { ru: 'Финал: Аналитический SQL', kk: 'Финал: Аналитикалық SQL' },
+    xpReward: 120,
+    title: {
+      ru: 'Извлечение критических данных через SQL',
+      kk: 'SQL арқылы маңызды деректерді алу',
+    },
+    prompt: {
+      ru: 'ФИНАЛ МОДУЛЯ 05: Вычислите средний балл SUM или AVG: выберите course_id и AVG(score) из таблицы results, сгруппировав по course_id и отсортировав по AVG(score) DESC.',
+      kk: '05-МОДУЛЬ ФИНАЛЫ: results кестесінен course_id және AVG(score) мәндерін шығарып, course_id бойынша топтап, AVG(score) DESC бойынша сұрыптаңыз.',
+    },
+    sql: {
+      starterQuery: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+      requiredPatterns: ['SELECT', 'course_id', 'AVG', 'FROM results', 'GROUP BY course_id', 'ORDER BY'],
+      expectedRowCount: 4,
+      expectedFirstCell: 103,
+      referenceQuery: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+    },
+    hint: {
+      ru: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+      kk: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+    },
+    solutionDisplay: {
+      ru: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+      kk: 'SELECT course_id, AVG(score) FROM results GROUP BY course_id ORDER BY AVG(score) DESC;',
+    },
+    explanation: {
+      ru: 'Лидер по среднему баллу — курс 103 (SQL Databases) со средним баллом (94 + 98) / 2 = 96.0.',
+      kk: 'Орташа балл бойынша көшбасшы — 103-курс (SQL Databases), орташа балы (94 + 98) / 2 = 96.0.',
+    },
+  },
+
+  // =========================================================
+  // MODULE 06 — NETWORK PROTOCOL (Networks & Tech) — 8 exercises
+  // =========================================================
+  {
+    id: 'm6-q1',
+    moduleId: 'network-protocol',
+    order: 1,
+    format: 'QUICK_TEST',
+    difficulty: 'beginner',
+    topicTag: { ru: 'IP-адресация', kk: 'IP-мекенжайлау' },
+    xpReward: 45,
+    title: { ru: 'Валидация IPv4', kk: 'IPv4 тексеру' },
+    prompt: {
+      ru: 'Какой из приведённых адресов является корректным IPv4-адресом узла в сети?',
+      kk: 'Берілген мекенжайлардың қайсысы желідегі дұрыс IPv4-мекенжай болып табылады?',
+    },
+    options: {
+      ru: ['192.168.256.1', '10.0.14.254', '172.16.0', '255.300.1.5'],
+      kk: ['192.168.256.1', '10.0.14.254', '172.16.0', '255.300.1.5'],
+    },
+    correctIndex: 1,
+    hint: {
+      ru: 'IPv4 состоит из 4 октетов (чисел от 0 до 255), разделённых точками.',
+      kk: 'IPv4 нүктелермен бөлінген 4 октеттен (0-ден 255-ке дейінгі сандар) тұрады.',
+    },
+    solutionDisplay: { ru: '10.0.14.254', kk: '10.0.14.254' },
+    explanation: {
+      ru: 'Только 10.0.14.254 содержит 4 числа в допустимом диапазоне [0..255].',
+      kk: 'Тек 10.0.14.254 мекенжайында [0..255] аралығындағы 4 сан бар.',
+    },
+  },
+  {
+    id: 'm6-q2',
+    moduleId: 'network-protocol',
+    order: 2,
+    format: 'MATCHING',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Сетевые протоколы', kk: 'Желілік хаттамалар' },
+    xpReward: 55,
+    title: { ru: 'Стек протоколов', kk: 'Хаттамалар стегі' },
+    prompt: {
+      ru: 'Сопоставьте сетевые службы и протоколы с их основным назначением.',
+      kk: 'Желілік қызметтер мен хаттамаларды олардың негізгі мақсатымен сәйкестендіріңіз.',
+    },
+    pairs: [
+      {
+        id: 'n1',
+        left: { ru: 'DNS', kk: 'DNS' },
+        right: { ru: 'Преобразует доменное имя в IP-адрес', kk: 'Домендік атауды IP-мекенжайға түрлендіреді' },
+      },
+      {
+        id: 'n2',
+        left: { ru: 'HTTPS', kk: 'HTTPS' },
+        right: { ru: 'Зашифрованная передача веб-страниц (TLS)', kk: 'Веб-беттерді шифрланған түрде тасымалдау (TLS)' },
+      },
+      {
+        id: 'n3',
+        left: { ru: 'FTP', kk: 'FTP' },
+        right: { ru: 'Протокол передачи файлов между клиентом и сервером', kk: 'Клиент пен сервер арасында файл алмасу хаттамасы' },
+      },
+      {
+        id: 'n4',
+        left: { ru: 'HTTP', kk: 'HTTP' },
+        right: { ru: 'Нешифрованный протокол передачи гипертекста', kk: 'Шифрланбаған гипермәтінді тасымалдау хаттамасы' },
+      },
+    ],
+    hint: {
+      ru: 'Буква S в HTTPS означает Secure (защищённый), а F в FTP — File (файл).',
+      kk: 'HTTPS-тегі S — Secure (қорғалған), ал FTP-дегі F — File (файл) дегенді білдіреді.',
+    },
+    solutionDisplay: {
+      ru: 'DNS→имена в IP, HTTPS→шифрованный веб, FTP→файлы, HTTP→гипертекст',
+      kk: 'DNS→атауды IP-ге, HTTPS→шифрланған веб, FTP→файлдар, HTTP→гипермәтін',
+    },
+    explanation: {
+      ru: 'DNS отвечает за разрешение доменных имён, HTTP/HTTPS — за веб-трафик, FTP — за обмен файлами.',
+      kk: 'DNS домен атауларын IP-ге түрлендіреді, HTTP/HTTPS веб-трафикке, ал FTP файл алмасуға жауап береді.',
+    },
+  },
+  {
+    id: 'm6-q3',
+    moduleId: 'network-protocol',
+    order: 3,
+    format: 'QUICK_TEST',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Сетевое оборудование', kk: 'Желілік жабдық' },
+    xpReward: 50,
+    title: { ru: 'Маршрутизация пакетов', kk: 'Пакеттерді маршруттау' },
+    prompt: {
+      ru: 'Какое устройство соединяет разные сети (например, локальную сеть LAN и глобальную сеть WAN) и определяет оптимальный путь передачи пакетов по IP-адресам?',
+      kk: 'Әртүрлі желілерді (мысалы, LAN мен WAN) байланыстырып, IP-мекенжайлар бойынша пакеттердің оңтайлы жолын анықтайтын құрылғы қалай аталады?',
+    },
+    options: {
+      ru: ['Концентратор (Hub)', 'Маршрутизатор (Router)', 'Повторитель (Repeater)', 'Сетевая карта (NIC)'],
+      kk: ['Концентратор (Hub)', 'Маршрутизатор (Router)', 'Қайталағыш (Repeater)', 'Желілік карта (NIC)'],
+    },
+    correctIndex: 1,
+    hint: {
+      ru: 'Оно работает с маршрутами (route) на сетевом уровне.',
+      kk: 'Ол желілік деңгейде бағыттармен (route) жұмыс істейді.',
+    },
+    solutionDisplay: { ru: 'Маршрутизатор (Router)', kk: 'Маршрутизатор (Router)' },
+    explanation: {
+      ru: 'Маршрутизатор (роутер) связывает различные подсети и направляет пакеты по таблице маршрутизации.',
+      kk: 'Маршрутизатор әртүрлі ішкі желілерді байланыстырып, пакеттерді маршруттау кестесі бойынша бағыттайды.',
+    },
+  },
+  {
+    id: 'm6-q4',
+    moduleId: 'network-protocol',
+    order: 4,
+    format: 'QUICK_TEST',
+    difficulty: 'beginner',
+    topicTag: { ru: 'Архитектура компьютера', kk: 'Компьютер архитектурасы' },
+    xpReward: 45,
+    title: { ru: 'Память и процессор', kk: 'Жад және процессор' },
+    prompt: {
+      ru: 'Какая память является энергозависимой и хранит данные только до выключения питания компьютера?',
+      kk: 'Компьютердің қуатын өшіргенге дейін ғана деректерді сақтайтын энергияға тәуелді жад түрі қайсы?',
+    },
+    options: {
+      ru: ['ПЗУ (ROM)', 'ОЗУ (RAM)', 'SSD-накопитель', 'Флеш-память'],
+      kk: ['ТЖҚ (ROM)', 'ЖЖҚ (RAM)', 'SSD-жинақтағыш', 'Флеш-жад'],
+    },
+    correctIndex: 1,
+    hint: {
+      ru: 'В этой памяти размещаются запущенные программы и текущие вычисления.',
+      kk: 'Бұл жадта іске қосылған бағдарламалар мен ағымдағы есептеулер орналасады.',
+    },
+    solutionDisplay: { ru: 'ОЗУ (RAM)', kk: 'ЖЖҚ (RAM)' },
+    explanation: {
+      ru: 'Оперативное запоминающее устройство (RAM) очищается при отключении питания, в отличие от ROM и SSD.',
+      kk: 'Жедел жад (RAM) қуат өшкенде тазаланады, ал ROM мен SSD деректерді сақтайды.',
+    },
+  },
+  {
+    id: 'm6-q5',
+    moduleId: 'network-protocol',
+    order: 5,
+    format: 'QUICK_TEST',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Операционные системы', kk: 'Операциялық жүйелер' },
+    xpReward: 55,
+    title: { ru: 'Функции ОС', kk: 'ОЖ функциялары' },
+    prompt: {
+      ru: 'Какая из перечисленных задач является основной функцией ядра операционной системы?',
+      kk: 'Төмендегі міндеттердің қайсысы операциялық жүйе ядросының негізгі қызметіне жатады?',
+    },
+    options: {
+      ru: [
+        'Редактирование векторной графики',
+        'Управление процессами, памятью и драйверами устройств',
+        'Компиляция HTML-сайтов в браузере',
+        'Резервное копирование облачных фото вручную',
+      ],
+      kk: [
+        'Векторлық графиканы өңдеу',
+        'Процестерді, жадты және құрылғы драйверлерін басқару',
+        'Браузерде HTML-сайттарды құрастыру',
+        'Бұлттық фотосуреттерді қолмен көшіру',
+      ],
+    },
+    correctIndex: 1,
+    hint: {
+      ru: 'Ядро ОС распределяет процессорное время и оперативную память между приложениями.',
+      kk: 'ОЖ ядросы процессор уақыты мен жедел жадты қосымшалар арасында бөледі.',
+    },
+    solutionDisplay: {
+      ru: 'Управление процессами, памятью и драйверами устройств',
+      kk: 'Процестерді, жадты және құрылғы драйверлерін басқару',
+    },
+    explanation: {
+      ru: 'Операционная система управляет аппаратными ресурсами (CPU, RAM, устройства ввода-вывода) и файловой системой.',
+      kk: 'Операциялық жүйе аппараттық ресурстарды (CPU, RAM, енгізу-шығару құрылғылары) және файлдық жүйені басқарады.',
+    },
+  },
+  {
+    id: 'm6-q6',
+    moduleId: 'network-protocol',
+    order: 6,
+    format: 'QUICK_TEST',
+    difficulty: 'intermediate',
+    topicTag: { ru: 'Информационная безопасность', kk: 'Ақпараттық қауіпсіздік' },
+    xpReward: 60,
+    title: { ru: 'Киберугрозы и защита', kk: 'Киберқауіптер және қорғау' },
+    prompt: {
+      ru: 'Как называется вид мошенничества, при котором злоумышленник создаёт поддельную страницу входа в банк или почту для кражи паролей пользователя?',
+      kk: 'Пайдаланушының құпиясөздерін ұрлау мақсатында банк немесе поштаның жалған кіру бетін жасайтын алаяқтық түрі қалай аталады?',
+    },
+    options: {
+      ru: ['Фишинг (Phishing)', 'Дефрагментация', 'Кэширование', 'Шардинг'],
+      kk: ['Фишинг (Phishing)', 'Дефрагментация', 'Кэштеу', 'Шардинг'],
+    },
+    correctIndex: 0,
+    hint: {
+      ru: 'Слово происходит от английского fishing — «выуживание» конфиденциальных данных.',
+      kk: 'Бұл атау ағылшынның fishing («құпия деректерді аулау») сөзінен шыққан.',
+    },
+    solutionDisplay: { ru: 'Фишинг (Phishing)', kk: 'Фишинг (Phishing)' },
+    explanation: {
+      ru: 'Фишинг — это метод социальной инженерии для кражи учётных данных через поддельные сайты и письма.',
+      kk: 'Фишинг — жалған сайттар мен хаттар арқылы тіркелгі деректерін ұрлайтын әлеуметтік инженерия әдісі.',
+    },
+  },
+  {
+    id: 'm6-q7',
+    moduleId: 'network-protocol',
+    order: 7,
+    format: 'TEXT_INPUT',
+    difficulty: 'advanced',
+    topicTag: { ru: 'Клиент-сервер и URL', kk: 'Клиент-сервер және URL' },
+    xpReward: 65,
+    title: { ru: 'Разбор домена', kk: 'Доменді талдау' },
+    prompt: {
+      ru: 'Дан адрес: https://edu.exam-portal.kz/informatics/module6. Какой домен верхнего уровня (TLD) указан в этом URL?',
+      kk: 'https://edu.exam-portal.kz/informatics/module6 мекенжайы берілген. Бұл URL-де қандай жоғарғы деңгейлі домен (TLD) көрсетілген?',
+    },
+    acceptedAnswers: ['kz', '.kz'],
+    inputPlaceholder: { ru: 'Например: org', kk: 'Мысалы: org' },
+    hint: {
+      ru: 'Домен верхнего уровня — это самая правая часть доменного имени после последней точки перед путём /.',
+      kk: 'Жоғарғы деңгейлі домен — / жолынан бұрынғы соңғы нүктеден кейінгі оң жақ бөлік.',
+    },
+    solutionDisplay: { ru: '.kz', kk: '.kz' },
+    explanation: {
+      ru: 'В имени edu.exam-portal.kz национальный домен верхнего уровня Казахстана — kz (.kz).',
+      kk: 'edu.exam-portal.kz атауында Қазақстанның ұлттық жоғарғы деңгейлі домені — kz (.kz).',
+    },
+  },
+  {
+    id: 'm6-q8',
+    moduleId: 'network-protocol',
+    order: 8,
+    format: 'ORDER_STEPS',
+    difficulty: 'advanced',
+    isBossChallenge: true,
+    topicTag: { ru: 'Финал: Восстановление сети', kk: 'Финал: Желіні қалпына келтіру' },
+    xpReward: 120,
+    title: {
+      ru: 'Восстановление сетевого контура системы',
+      kk: 'Жүйенің желілік контурын қалпына келтіру',
+    },
+    prompt: {
+      ru: 'ФИНАЛ МОДУЛЯ 06: Выстройте правильную последовательность этапов при открытии защищённого сайта https://exam.kz в браузере (клиент-серверное взаимодействие).',
+      kk: '06-МОДУЛЬ ФИНАЛЫ: Браузерде https://exam.kz қорғалған сайтын ашу кезіндегі клиент-сервер өзара әрекеттесу кезеңдерін дұрыс ретімен орналастырыңыз.',
+    },
+    steps: [
+      { id: 'net1', text: { ru: 'DNS-запрос: получение IP-адреса домена exam.kz', kk: 'DNS-сұраныс: exam.kz доменінің IP-мекенжайын алу' } },
+      { id: 'net2', text: { ru: 'Установка TCP-соединения и TLS-рукопожатие (HTTPS)', kk: 'TCP қосылымын орнату және TLS-қол алысу (HTTPS)' } },
+      { id: 'net3', text: { ru: 'Отправка HTTP-запроса GET на сервер', kk: 'Серверге HTTP GET сұранысын жіберу' } },
+      { id: 'net4', text: { ru: 'Получение ответа 200 OK и отображение страницы клиентом', kk: '200 OK жауабын алу және клиент бетін көрсету' } },
+    ],
+    correctOrder: ['net1', 'net2', 'net3', 'net4'],
+    hint: {
+      ru: 'Сначала браузер узнаёт IP через DNS, затем создаёт защищённый канал, отправляет запрос и рендерит ответ.',
+      kk: 'Алдымен браузер DNS арқылы IP-ді біледі, содан кейін қорғалған арна ашады, сұраныс жіберіп жауапты көрсетеді.',
+    },
+    solutionDisplay: {
+      ru: 'DNS → TCP/TLS → HTTP GET → Ответ 200 OK',
+      kk: 'DNS → TCP/TLS → HTTP GET → 200 OK жауабы',
+    },
+    explanation: {
+      ru: 'Клиент сначала переводит имя в IP (DNS), затем устанавливает шифрованный TLS-канал, делает GET-запрос и получает данные.',
+      kk: 'Клиент алдымен атауды IP-ге аударады (DNS), сосын TLS-арна орнатып, GET-сұраныс жібереді және деректерді алады.',
+    },
+  },
+];

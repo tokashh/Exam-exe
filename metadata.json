@@ -1,0 +1,6 @@
+{
+  "name": "EXAM.exe",
+  "description": "An interactive cyberpunk educational game for Kazakhstan UNT Informatics preparation featuring Python Lab, SQL Terminal, logic puzzles, Web Audio synth music, and offline PWA support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
